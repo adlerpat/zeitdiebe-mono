@@ -1,0 +1,39 @@
+{
+  "root": "apps/zeitdiebe-statistics-worker",
+  "sourceRoot": "apps/zeitdiebe-statistics-worker/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/zeitdiebe-statistics-worker",
+        "main": "apps/zeitdiebe-statistics-worker/src/index.ts",
+        "tsConfig": "apps/zeitdiebe-statistics-worker/tsconfig.app.json",
+        "assets": ["apps/zeitdiebe-statistics-worker/*.md"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "zeitdiebe-statistics-worker:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/zeitdiebe-statistics-worker/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/zeitdiebe-statistics-worker"],
+      "options": {
+        "jestConfig": "apps/zeitdiebe-statistics-worker/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

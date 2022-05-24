@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Neue Meldung
+    </ion-title>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Meldung Verfassen
+      </ion-label>
+    </ion-list-header>
+
+    <form [formGroup]="reportObj" (ngSubmit)="report()">
+      <ion-item>
+        <ion-input placeholder="Meldung Nummer 1" readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Verkehrsunternehmen</ion-label>
+        <ion-select formControlName="vku" placeholder="-" okText="Auswählen" cancelText="Abbrechen" required>
+          <ion-select-option *ngFor="let vku of vkus" [value]="vku">{{vku}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Art</ion-label>
+        <ion-select formControlName="type" placeholder="-" okText="Auswählen" cancelText="Abbrechen" required>
+          <ion-select-option *ngFor="let type of types" [value]="type">{{type}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Minuten</ion-label>
+        <ion-input formControlName="minutes" inputmode="numeric" type="number" placeholder="0"> </ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Auswirkungen</ion-label>
+        <ion-select formControlName="repercussions" multiple="true" [value]="['keine']" required>
+          <ion-select-option *ngFor="let repercussion of repercussions" [value]="repercussion">{{repercussion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Linie</ion-label>
+        <ion-input formControlName="line" placeholder="S3, 33, 26,..." required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Ort</ion-label>
+        <ion-input formControlName="city" placeholder="Heidelberg, Berlin, Frankfurt,..." required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Bild Zeittafel / Screenshot App</ion-label>
+        <ion-input name="fileInput" [(ngModel)]="manualChangesFiles" [ngModelOptions]="{standalone: true}" type="file" (change)="onFileSelected($event)"></ion-input>
+      </ion-item>
+
+      <p class="ion-padding-start ion-padding-end">
+        <ion-button type="submit" [disabled]="!reportObj.valid" expand="block" fill="outline" color="success">Meldung Absenden</ion-button>
+      </p>
+    </form>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Meine Meldungen
+    </ion-title>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <h1 class="ion-padding-start ion-padding-end">Meldungen von {{(authService?.user | async)?.user.displayName}}</h1>
+  <ion-item *ngFor="let report of (reportService._myReports$ | async)">
+    <ion-label (click)="openReportModal(report)">Meldung {{report?.number}} - {{report?.vku}} ({{report?.city}})</ion-label>
+  </ion-item>
+</ion-content>
+<p class="ion-padding-start ion-padding-end"><ion-button (click)="authService.logout()" expand="block" fill="outline" color="danger">Logout</ion-button></p>
+
+<ion-modal [isOpen]="showModal">
+  <ng-template>
+    <app-report-detail-modal [report]="modalReport" (closeModalEvent)="closeReportModal($event)" [userid]="uid"></app-report-detail-modal>
+  </ng-template>
+</ion-modal>

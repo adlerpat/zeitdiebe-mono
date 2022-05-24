@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "zeitdiebe": "apps/zeitdiebe",
+    "zeitdiebe-e2e": "apps/zeitdiebe-e2e",
+    "zeitdiebe-statistics-worker": "apps/zeitdiebe-statistics-worker"
+  }
+}

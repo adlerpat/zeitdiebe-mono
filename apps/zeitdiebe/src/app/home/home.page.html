@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Übersicht
+    </ion-title>
+    <ion-button slot="end" fill="clear">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <app-simple-line-chart [statisticsSource]="statisticsSource$ | async"></app-simple-line-chart>
+</ion-content>

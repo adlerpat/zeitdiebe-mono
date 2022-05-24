@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Willkommen
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <ion-card-content>
+      <ion-img src="../assets/icon/favicon.png" style="height: 5vh; width: auto;"></ion-img>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registrierte Nutzer</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="ion-padding-start ion-padding-end">
+        <ion-button (click)="presentLoginModal()" expand="block" fill="outline">Anmelden</ion-button>
+      </p>
+      <p class="ion-padding-start ion-padding-end">
+        <ion-button (click)="presentResetModal()" expand="block" fill="outline">Passwort Zurücksetzen</ion-button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Neue Nutzer</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="ion-padding-start ion-padding-end">
+        <ion-button (click)="presentRegisterModal()" expand="block" fill="outline">Registrieren</ion-button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

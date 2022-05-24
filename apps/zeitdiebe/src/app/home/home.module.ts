@@ -1,0 +1,24 @@
+import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { HomePage } from './home.page';
+import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+
+import { HomePageRoutingModule } from './home-routing.module';
+import { SimpleLineChartComponent } from './simple-line-chart/simple-line-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
+@NgModule({
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    ExploreContainerComponentModule,
+    HomePageRoutingModule,
+    NgxChartsModule
+  ],
+  declarations: [HomePage, SimpleLineChartComponent]
+})
+export class HomePageModule {}

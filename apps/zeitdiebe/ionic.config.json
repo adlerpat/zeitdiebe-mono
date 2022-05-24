@@ -1,0 +1,7 @@
+{
+  "name": "zeitdiebe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
