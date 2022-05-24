@@ -8,6 +8,7 @@
 Prerequesites
 - [nrwlNX](https://nx.dev/)
 - [angularCLI](https://angular.io/cli)
+- [ioniccli](https://ionicframework.com/docs/intro/cli)
 
 Install project with npm
 
